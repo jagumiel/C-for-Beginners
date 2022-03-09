@@ -14,6 +14,9 @@ int main(void){
 	display(list);
 	//setValues(list);
 	printf("__________________________\n");
+	setHeadAndTail(list, 4);
+	display(list);
+	printf("__________________________\n");
 	deleteNode(4, list);
 	display(list);
 	printf("__________________________\n");
@@ -21,5 +24,8 @@ int main(void){
 	display(list);
 	printf("__________________________\n");
 	deleteNode(6, list);
+	display(list);
+	printf("__________________________\n");
+	setHeadAndTail(list, 3);
 	display(list);
 }

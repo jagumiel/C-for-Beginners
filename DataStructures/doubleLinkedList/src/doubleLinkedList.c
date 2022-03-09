@@ -4,20 +4,6 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-/* Double Linked Node: */
-struct node {
-	uint8_t data;
-	struct node * next;
-	struct node * prev;
-};
-
-/* List. It stores pointers to the first and the last node: */
-struct list {
-	Node * head;
-	Node * tail;
-};
-
-Node * createnode(uint8_t data);
 
 
 /* Creates a new node. Next and prev pointers will be setted on "addNode" function. */
@@ -153,3 +139,42 @@ void setValues(List * list) {
 		}
 	}
 }
+
+void setHeadAndTail(List * list, uint8_t firstValue){
+	Node * current = list->head;
+	if(current!=NULL){
+		while(current->next!=list->head){
+			current=current->next;
+			if(current->data==firstValue){
+				list->head=current;
+				list->tail=current->prev;
+			}
+		}
+	}
+}
+
+
+//void reverse(List * list){
+//  Node * reversed = NULL;
+//  Node * current = list->head;
+//  Node * temp = NULL;
+//  while(current != NULL){
+//    temp = current;
+//    current = current->next;
+//    temp->next = reversed;
+//    reversed = temp;
+//  }
+//  list->head = reversed;
+//}
+////Reversing the entire list by changing the direction of link from forward to backward using two pointers
+//void reverse_using_two_pointers(List *list){
+//    Node *previous = NULL;
+//    while (list->head)
+//    {
+//        Node *next_node = list->head->next; //pouint8_ts to second node in list
+//        list->head->next = previous;//at initial making head as NULL
+//        previous = list->head;//changing the next pointer direction as to pouint8_t backward node
+//        list->head = next_node; //moving forward by next node
+//    }
+//    list->head=previous;
+//}
